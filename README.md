@@ -6,12 +6,12 @@ TagsFinder is a rudimentary tool for searching from local file system for text f
 
 It is primarily intended for the developer who wants to maintain a set of resources/documentation/tips and be able to find them easily.
 
-The comparison between the tags of the elements and the searched tags is done with the [cosine algorithm](https://en.wikipedia.org/wiki/Cosine_similarity#:~:targetText=Cosine%20similarity%20is%20a%20measure,(0%2C%CF%80%5D%20radians), implemented in the [string-similarity library](https://github.com/mhutter/string-similarity)
+The comparison between the tags of the elements and the searched tags is done with the [cosine algorithm](https://en.wikipedia.org/wiki/Cosine_similarity), implemented in the [string-similarity library](https://github.com/mhutter/string-similarity)
 
 The search is parallelized and uses by default all the processors of the machine.
 
 The tool only integrates the minimum to search for text extracts.
-The integration in a command line tool will be done manually, see example [FIXME link].
+The integration in a command line tool will be done manually, see [example](example/README.md).
 
 ## Installation
 

@@ -1,9 +1,6 @@
 #!/usr/bin/env ruby
 # frozen_string_literal: true
 
-#
-# BUNDLE_GEMFILE=/Users/joakimcarrilho/dev/tools/toolbox/gems/tags_finder/example/Gemfile
-
 require 'bundler'
 Bundler.setup(:default)
 

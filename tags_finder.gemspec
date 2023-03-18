@@ -9,9 +9,10 @@ Gem::Specification.new do |spec|
   spec.authors     = ['Joakim Carrilho']
   spec.email       = 'joakim.carrilho@yahoo.fr'
   spec.files       = ['lib/tags_finder.rb']
-  spec.homepage    = ''
+  spec.homepage    = 'https://github.com/Kimoja/tags_finder'
   spec.license     = 'MIT'
   spec.required_ruby_version = '>= 3.1.1'
+  spec.metadata    = { "rubygems_mfa_required" => "false" }
 
   spec.add_dependency 'string-similarity', '~> 2.1.0'
   spec.metadata['rubygems_mfa_required'] = 'true'
