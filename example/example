@@ -1,0 +1,64 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+#
+# BUNDLE_GEMFILE=/Users/joakimcarrilho/dev/tools/toolbox/gems/tags_finder/example/Gemfile
+
+require 'bundler'
+Bundler.setup(:default)
+
+require 'tags_finder'
+require 'highline/import'
+require 'tempfile'
+
+def find_tags(search_tags)
+  tags_finder = TagsFinder.new(
+    search_tags:,
+    search_globs: [
+      File.join(__dir__, 'tags/**/*')
+    ],
+    result_size: 10
+  )
+
+  t = Time.now
+  tags_finder.find do |results_slice|
+    puts Time.now - t
+    results = results_slice.flat_map do |result|
+      extract_result(result)
+    end
+
+    Tempfile.create([search_tags * '_', '.md']) do |tmp_file|
+      File.write(tmp_file.path, results * "\n")
+
+      `code --goto '#{tmp_file.path}'`
+
+      return unless yes?('Press [y] to continue the search')
+    end
+  end
+
+  puts 'No more results'
+rescue Interrupt
+  puts 'Exiting...'
+end
+
+def extract_result(result)
+  <<~TEXT
+    # Result Tags: #{result.tags * ' '}
+
+    - **score**: #{result.score}
+    - `code --goto #{result.path}:#{result.start_line}`
+
+    #{result.extract}
+
+    ------------------------------------------------------
+  TEXT
+end
+
+def yes?(prompt)
+  ask(prompt.to_s) do |q|
+    q.limit = 1
+    q.case = :downcase
+  end == 'y'
+end
+
+find_tags(ARGV)
