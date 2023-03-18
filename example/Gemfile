@@ -2,6 +2,6 @@
 
 source 'https://rubygems.org'
 
-gem 'tags_finder', path: '../'
+gem 'tags_finder', '~> 0.1.2'
 
 gem 'highline', '~> 2.1'

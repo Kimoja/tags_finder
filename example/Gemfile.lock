@@ -1,21 +1,17 @@
-PATH
-  remote: ..
-  specs:
-    tags_finder (0.1.1)
-      string-similarity (~> 2.1.0)
-
 GEM
   remote: https://rubygems.org/
   specs:
     highline (2.1.0)
     string-similarity (2.1.0)
+    tags_finder (0.1.2)
+      string-similarity (~> 2.1.0)
 
 PLATFORMS
   arm64-darwin-22
 
 DEPENDENCIES
   highline (~> 2.1)
-  tags_finder!
+  tags_finder (~> 0.1.2)
 
 BUNDLED WITH
    2.3.23
