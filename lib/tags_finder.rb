@@ -6,8 +6,6 @@ require 'etc'
 
 # :nodoc:
 class TagsFinder
-  VERSION = '0.1.0'
-
   # :nodoc:
   class Error < StandardError; end
 
@@ -90,3 +88,4 @@ end
 require_relative 'tags_finder/parser'
 require_relative 'tags_finder/job'
 require_relative 'tags_finder/result'
+require_relative 'tags_finder/version'

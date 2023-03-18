@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative 'lib/tags_finder'
+require_relative 'lib/tags_finder/version'
 
 Gem::Specification.new do |spec|
   spec.name        = 'tags_finder'
@@ -12,7 +12,6 @@ Gem::Specification.new do |spec|
   spec.homepage    = 'https://github.com/Kimoja/tags_finder'
   spec.license     = 'MIT'
   spec.required_ruby_version = '>= 3.1.1'
-  spec.metadata    = { "rubygems_mfa_required" => "false" }
 
   spec.add_dependency 'string-similarity', '~> 2.1.0'
   spec.metadata['rubygems_mfa_required'] = 'true'
