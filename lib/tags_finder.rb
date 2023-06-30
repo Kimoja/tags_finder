@@ -34,6 +34,8 @@ class TagsFinder
     paths = Dir.glob(@search_globs)
     slice_size = (paths.length / @parallelism.to_f).ceil
 
+    return [] unless slice_size.positive? 
+
     jobs = paths.each_slice(slice_size).map do |paths_slice|
       job = Job.new do
         paths_slice.flat_map do |path|
